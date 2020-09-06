@@ -1,7 +1,7 @@
 ## Attention: This is a fork of the project(https://github.com/ponnamkarthik/RichLinkPreview)
 **I have made some changes to add a new Link preview UI like shown in Facebook**
 
-I did not write this library, all credit goes to ponnamkarthik.
+I did not write this library, all credit goes to [ponnamkarthik](https://github.com/ponnamkarthik).
 
 
 # RichLink-Preview
