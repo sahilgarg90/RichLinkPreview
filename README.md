@@ -1,20 +1,18 @@
+## Attention: This is a fork of the project(https://github.com/ponnamkarthik/RichLinkPreview)
+**I have made some changes to add a new Link preview UI like shown in Facebook**
+
+I did not write this library, all credit goes to ponnamkarthik.
+
+
 # RichLink-Preview
 A Rich Link Preview Library for Android
 
-[![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-RichLinkPreview-green.svg?style=flat )]( https://android-arsenal.com/details/1/6702 )
-
 
 > Sample Image
-<img src="https://github.com/PonnamKarthik/RichLinkPreview/raw/master/screenshots/sample.png" width="300" alt="ScreenShot">
+<img src="https://github.com/sahilgarg90/RichLinkPreview/raw/master/screenshots/sample.png" width="300" alt="ScreenShot">
 
 
 #### Import using Gradle
-
-~~~gradle
-compile 'io.github.ponnamkarthik:richlinkpreview:1.0.9'
-~~~
-
-for android studio 3.x
 
 ~~~gradle
 implementation 'io.github.ponnamkarthik:richlinkpreview:1.0.9'
@@ -25,6 +23,12 @@ implementation 'io.github.ponnamkarthik:richlinkpreview:1.0.9'
 Add below code in activity_main.xml
 
 ~~~xml
+<!--Facebook -->
+<io.github.ponnamkarthik.richlinkpreview.RichLinkViewFacebook
+    android:id="@+id/richLinkViewFacebook"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+</io.github.ponnamkarthik.richlinkpreview.RichLinkViewFacebook>
 <!--default view or whatsapp -->
 <io.github.ponnamkarthik.richlinkpreview.RichLinkView
     android:id="@+id/richLinkView"
@@ -87,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 ~~~java
+RichLinkViewFacebook richLinkViewFacebook;
 RichLinkView richLinkView;
 RichLinkViewTelegram richLinkViewTelegram;
 RichLinkViewSkype richLinkViewSkype;
