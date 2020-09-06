@@ -17,6 +17,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <io.github.ponnamkarthik.richlinkpreview.RichLinkViewFacebook
+                android:id="@+id/richLinkViewFacebook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </io.github.ponnamkarthik.richlinkpreview.RichLinkViewFacebook>
+
             <io.github.ponnamkarthik.richlinkpreview.RichLinkView
                 android:id="@+id/richLinkView"
                 android:layout_width="match_parent"
