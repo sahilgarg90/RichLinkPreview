@@ -1,7 +1,7 @@
 package io.github.ponnamkarthik.sample;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         goToList = (Button) findViewById(R.id.go_to_list);
 
-        richLinkView.setLink("https://whatsapp.com" ,new ViewListener() {
+        richLinkView.setLink("https://www.whatsapp.com" ,new ViewListener() {
             @Override
             public void onSuccess(boolean status) {
 
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        richLinkView3.setLink("https://twitter.com" ,new ViewListener() {
+        richLinkView3.setLink("https://www.twitter.com" ,new ViewListener() {
             @Override
             public void onSuccess(boolean status) {
 

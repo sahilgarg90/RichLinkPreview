@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 import android.text.Spannable;
 import android.text.style.URLSpan;
 import android.util.AttributeSet;
@@ -15,7 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 
 /**
  * Created by ponna on 16-01-2018.
@@ -86,9 +86,7 @@ public class RichLinkViewTelegram extends RelativeLayout {
             imageView.setVisibility(GONE);
         } else {
             imageView.setVisibility(VISIBLE);
-            Picasso.get()
-                    .load(meta.getImageurl())
-                    .into(imageView);
+            Glide.with(imageView).load(meta.getImageurl()).into(imageView);
         }
 
         if(meta.getTitle().isEmpty() || meta.getTitle().equals("")) {

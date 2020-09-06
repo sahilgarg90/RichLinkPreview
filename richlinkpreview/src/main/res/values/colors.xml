@@ -8,6 +8,8 @@
     <color name="skype_start_color">#201db0ed</color>
     <color name="skype_end_color">#30000000</color>
 
+    <color name="grey">#F0F1F5</color>
+
     <!--reds-->
     <color name="md_red_50">#FFEBEE</color>
     <color name="md_red_100">#FFCDD2</color>

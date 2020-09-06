@@ -1,11 +1,12 @@
 package io.github.ponnamkarthik.richlinkpreview;
 
 /**
- * Created by ponna on 16-01-2018.
+ * Update by sahil on 06-09-2020.
  */
 
 public class MetaData {
 
+    private String baseUrl = "";
     private String url = "";
     private String imageurl = "";
     private String title = "";
@@ -13,6 +14,14 @@ public class MetaData {
     private String sitename = "";
     private String mediatype = "";
     private String favicon = "";
+
+    public String getBaseUrl() {
+        return baseUrl;
+    }
+
+    public void setBaseUrl(String baseUrl) {
+        this.baseUrl = baseUrl;
+    }
 
     public String getUrl() {
         return url;

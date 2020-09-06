@@ -3,10 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <io.github.ponnamkarthik.richlinkpreview.RichLinkView
+    <io.github.ponnamkarthik.richlinkpreview.RichLinkViewFacebook
         android:id="@+id/richLinkView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    </io.github.ponnamkarthik.richlinkpreview.RichLinkView>
+    </io.github.ponnamkarthik.richlinkpreview.RichLinkViewFacebook>
 
 </RelativeLayout>

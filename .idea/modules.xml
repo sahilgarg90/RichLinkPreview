@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RickLinkPreview.iml" filepath="$PROJECT_DIR$/.idea/modules/RickLinkPreview.iml" group="RickLinkPreview" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/RickLinkPreview-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/RickLinkPreview-app.iml" group="RickLinkPreview/app" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/richlinkpreview/io.github.ponnamkarthik-richlinkpreview.iml" filepath="$PROJECT_DIR$/.idea/modules/richlinkpreview/io.github.ponnamkarthik-richlinkpreview.iml" group="RickLinkPreview/richlinkpreview" />
       <module fileurl="file://$PROJECT_DIR$/richlink.iml" filepath="$PROJECT_DIR$/richlink.iml" />
       <module fileurl="file://$PROJECT_DIR$/richlinkpreview/richlinkpreview.iml" filepath="$PROJECT_DIR$/richlinkpreview/richlinkpreview.iml" />
     </modules>

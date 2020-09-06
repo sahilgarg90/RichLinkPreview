@@ -1,8 +1,8 @@
 package io.github.ponnamkarthik.sample.adapters;
 
 import android.content.Context;
-import android.content.DialogInterface;
-import android.support.v7.app.AlertDialog;
+
+import androidx.appcompat.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 import io.github.ponnamkarthik.richlinkpreview.MetaData;
 import io.github.ponnamkarthik.richlinkpreview.RichLinkListener;
-import io.github.ponnamkarthik.richlinkpreview.RichLinkView;
+import io.github.ponnamkarthik.richlinkpreview.RichLinkViewFacebook;
 import io.github.ponnamkarthik.richlinkpreview.ViewListener;
 import io.github.ponnamkarthik.sample.R;
 
@@ -66,7 +66,7 @@ public class URLAdapter extends BaseAdapter {
     }
 
     public static class ViewHolder{
-        RichLinkView richLinkView;
+        RichLinkViewFacebook richLinkView;
     }
 
     @Override
@@ -78,7 +78,7 @@ public class URLAdapter extends BaseAdapter {
             LayoutInflater inflater = LayoutInflater.from(context);
             view = inflater.inflate(R.layout.layout_list, viewGroup, false);
 
-            viewHolder.richLinkView = (RichLinkView) view.findViewById(R.id.richLinkView);
+            viewHolder.richLinkView = (RichLinkViewFacebook) view.findViewById(R.id.richLinkView);
             view.setTag(viewHolder);
         }
         else {

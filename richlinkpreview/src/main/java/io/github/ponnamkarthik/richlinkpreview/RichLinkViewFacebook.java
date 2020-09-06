@@ -3,9 +3,8 @@ package io.github.ponnamkarthik.richlinkpreview;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
-import androidx.annotation.RequiresApi;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -15,21 +14,21 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 /**
- * Created by ponna on 16-01-2018.
+ * Created by sahil on 06-09-2020.
  */
 
-public class RichLinkViewSkype extends RelativeLayout {
+public class RichLinkViewFacebook extends RelativeLayout {
 
     private View view;
     Context context;
     private MetaData meta;
 
     RelativeLayout relativeLayout;
-    ImageView imageView;
-    ImageView imageViewFavIcon;
+    ImageView imageViewMain;
+    ImageView imageViewIcon;
     TextView textViewTitle;
-    TextView textViewDesp;
-    TextView textViewUrl;
+    TextView textViewDescription;
+    TextView textViewBaseUrl;
 
     private String main_url;
 
@@ -38,85 +37,89 @@ public class RichLinkViewSkype extends RelativeLayout {
     private RichLinkListener richLinkListener;
 
 
-    public RichLinkViewSkype(Context context) {
+    public RichLinkViewFacebook(Context context) {
         super(context);
         this.context = context;
     }
 
-    public RichLinkViewSkype(Context context, AttributeSet attrs) {
+    public RichLinkViewFacebook(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
     }
 
-    public RichLinkViewSkype(Context context, AttributeSet attrs, int defStyleAttr) {
+    public RichLinkViewFacebook(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.context = context;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    public RichLinkViewSkype(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public RichLinkViewFacebook(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         this.context = context;
     }
 
     public void initView() {
 
-        if(findRelativeLayoutChild() != null) {
+        if (findRelativeLayoutChild() != null) {
             this.view = findRelativeLayoutChild();
-        } else  {
+        } else {
             this.view = this;
-            inflate(context, R.layout.skype_link_layout,this);
+            inflate(context, R.layout.facebook_link_layout, this);
         }
 
         relativeLayout = (RelativeLayout) findViewById(R.id.rich_link_card);
-        imageView = (ImageView) findViewById(R.id.rich_link_image);
-        imageViewFavIcon = (ImageView) findViewById(R.id.rich_link_favicon);
-        textViewTitle = (TextView) findViewById(R.id.rich_link_title);
-        textViewDesp = (TextView) findViewById(R.id.rich_link_desp);
-        textViewUrl = (TextView) findViewById(R.id.rich_link_url);
+        imageViewMain = (ImageView) findViewById(R.id.imageViewMain);
+        imageViewIcon = (ImageView) findViewById(R.id.imageViewIcon);
+        textViewTitle = (TextView) findViewById(R.id.textViewTitle);
+        textViewDescription = (TextView) findViewById(R.id.textViewDescription);
+        textViewBaseUrl = (TextView) findViewById(R.id.textViewBaseUrl);
 
-
-        if(meta.getImageurl().equals("") || meta.getImageurl().isEmpty()) {
-            imageView.setVisibility(GONE);
+        if (!meta.getImageurl().isEmpty()) {
+            imageViewMain.setVisibility(VISIBLE);
+            imageViewIcon.setVisibility(GONE);
+            Glide.with(imageViewMain).load(meta.getImageurl()).into(imageViewMain);
         } else {
-            imageView.setVisibility(VISIBLE);
-            Glide.with(imageView).load(meta.getImageurl()).into(imageView);
+            imageViewMain.setVisibility(GONE);
+            if (!meta.getFavicon().isEmpty()) {
+                Log.d("Icon", meta.getFavicon());
+                imageViewIcon.setVisibility(VISIBLE);
+                Glide.with(imageViewIcon).load(meta.getFavicon()).placeholder(R.drawable.ic_link).error(R.drawable.ic_link).into(imageViewIcon);
+            } else {
+                imageViewIcon.setVisibility(GONE);
+            }
         }
 
-        if(meta.getFavicon().equals("") || meta.getFavicon().isEmpty()) {
-            imageViewFavIcon.setVisibility(GONE);
+        if (!meta.getBaseUrl().isEmpty() || !meta.getUrl().isEmpty()) {
+            textViewBaseUrl.setVisibility(VISIBLE);
+            if (!meta.getBaseUrl().isEmpty()) {
+                textViewBaseUrl.setText(meta.getBaseUrl());
+            } else {
+                textViewBaseUrl.setText(meta.getUrl());
+            }
         } else {
-            imageViewFavIcon.setVisibility(VISIBLE);
-            Glide.with(imageViewFavIcon).load(meta.getFavicon()).into(imageViewFavIcon);
+            textViewBaseUrl.setVisibility(GONE);
         }
 
-        if(meta.getTitle().isEmpty() || meta.getTitle().equals("")) {
-            textViewTitle.setVisibility(GONE);
-        } else {
+        if (!meta.getTitle().isEmpty()) {
             textViewTitle.setVisibility(VISIBLE);
             textViewTitle.setText(meta.getTitle());
-        }
-        if(meta.getUrl().isEmpty() || meta.getUrl().equals("")) {
-            textViewUrl.setVisibility(GONE);
         } else {
-            textViewUrl.setVisibility(VISIBLE);
-            textViewUrl.setText(meta.getUrl());
-        }
-        if(meta.getDescription().isEmpty() || meta.getDescription().equals("")) {
-            textViewDesp.setVisibility(GONE);
-        } else {
-            textViewDesp.setVisibility(VISIBLE);
-            textViewDesp.setText(meta.getDescription());
+            textViewTitle.setVisibility(GONE);
         }
 
+        if (!meta.getDescription().isEmpty()) {
+            textViewDescription.setVisibility(VISIBLE);
+            textViewDescription.setText(meta.getDescription());
+        } else {
+            textViewDescription.setVisibility(GONE);
+        }
 
         relativeLayout.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(isDefaultClick) {
+                if (isDefaultClick) {
                     richLinkClicked();
                 } else {
-                    if(richLinkListener != null) {
+                    if (richLinkListener != null) {
                         richLinkListener.onClicked(view, meta);
                     } else {
                         richLinkClicked();
@@ -124,7 +127,6 @@ public class RichLinkViewSkype extends RelativeLayout {
                 }
             }
         });
-
     }
 
     private void richLinkClicked() {
@@ -165,7 +167,7 @@ public class RichLinkViewSkype extends RelativeLayout {
             public void onData(MetaData metaData) {
                 meta = metaData;
 
-                if(meta.getTitle().isEmpty() || meta.getTitle().equals("")) {
+                if (meta.getTitle().isEmpty() || meta.getTitle().equals("")) {
                     viewListener.onSuccess(true);
                 }
 
