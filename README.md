@@ -12,11 +12,35 @@ A Rich Link Preview Library for Android
 <img src="https://github.com/sahilgarg90/RichLinkPreview/raw/master/screenshots/sample.png" width="300" alt="ScreenShot">
 
 
-#### Import using Gradle
+## Setup
 
-~~~gradle
-implementation 'io.github.ponnamkarthik:richlinkpreview:1.0.9'
-~~~
+The simplest way to use SweetAlertDialog is to add the library as aar dependency to your build.
+
+**Maven**
+
+    <dependency>
+	    <groupId>com.github.sahilgarg90</groupId>
+	    <artifactId>RichLinkPreview</artifactId>
+	    <version>1.0</version>
+	</dependency>
+    
+**Gradle**
+
+Add it in your root build.gradle at the end of repositories
+
+    allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+
+Add the dependency in your project level build.gradle
+
+    dependencies {
+        implementation 'com.github.sahilgarg90:RichLinkPreview:1.0'
+        implementation 'org.jsoup:jsoup:1.12.1'
+    }
 
 #### To implement existing layout using XML
 
