@@ -3,6 +3,7 @@ package io.github.ponnamkarthik.richlinkpreview;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.annotation.RequiresApi;
 
 import com.bumptech.glide.Glide;
 
@@ -52,6 +55,7 @@ public class RichLinkViewFacebook extends RelativeLayout {
         this.context = context;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public RichLinkViewFacebook(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         this.context = context;
