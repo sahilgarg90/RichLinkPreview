@@ -80,14 +80,14 @@ public class RichLinkViewSkype extends RelativeLayout {
             imageView.setVisibility(GONE);
         } else {
             imageView.setVisibility(VISIBLE);
-            Glide.with(imageView).load(meta.getImageurl()).into(imageView);
+            Glide.with(getContext()).load(meta.getImageurl()).into(imageView);
         }
 
         if(meta.getFavicon().equals("") || meta.getFavicon().isEmpty()) {
             imageViewFavIcon.setVisibility(GONE);
         } else {
             imageViewFavIcon.setVisibility(VISIBLE);
-            Glide.with(imageViewFavIcon).load(meta.getFavicon()).into(imageViewFavIcon);
+            Glide.with(getContext()).load(meta.getFavicon()).into(imageViewFavIcon);
         }
 
         if(meta.getTitle().isEmpty() || meta.getTitle().equals("")) {

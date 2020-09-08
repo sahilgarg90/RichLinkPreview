@@ -80,7 +80,7 @@ public class RichLinkViewTwitter extends RelativeLayout {
             imageView.setVisibility(GONE);
         } else {
             imageView.setVisibility(VISIBLE);
-            Glide.with(imageView).load(meta.getImageurl()).into(imageView);
+            Glide.with(getContext()).load(meta.getImageurl()).into(imageView);
         }
 
         if(meta.getTitle().isEmpty() || meta.getTitle().equals("")) {
