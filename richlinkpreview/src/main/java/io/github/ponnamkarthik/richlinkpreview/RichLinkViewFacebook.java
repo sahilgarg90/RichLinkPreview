@@ -80,13 +80,13 @@ public class RichLinkViewFacebook extends RelativeLayout {
         if (!meta.getImageurl().isEmpty()) {
             imageViewMain.setVisibility(VISIBLE);
             imageViewIcon.setVisibility(GONE);
-            Glide.with(getContext()).load(meta.getImageurl()).into(imageViewMain);
+            Glide.with(RickLinkPreviewSdk.get()).load(meta.getImageurl()).into(imageViewMain);
         } else {
             imageViewMain.setVisibility(GONE);
             if (!meta.getFavicon().isEmpty()) {
                 Log.d("Icon", meta.getFavicon());
                 imageViewIcon.setVisibility(VISIBLE);
-                Glide.with(getContext()).load(meta.getFavicon()).placeholder(R.drawable.ic_link).error(R.drawable.ic_link).into(imageViewIcon);
+                Glide.with(RickLinkPreviewSdk.get()).load(meta.getFavicon()).placeholder(R.drawable.ic_link).error(R.drawable.ic_link).into(imageViewIcon);
             } else {
                 imageViewIcon.setVisibility(GONE);
             }

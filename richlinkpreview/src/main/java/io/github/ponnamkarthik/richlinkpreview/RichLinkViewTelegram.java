@@ -86,7 +86,7 @@ public class RichLinkViewTelegram extends RelativeLayout {
             imageView.setVisibility(GONE);
         } else {
             imageView.setVisibility(VISIBLE);
-            Glide.with(getContext()).load(meta.getImageurl()).into(imageView);
+            Glide.with(RickLinkPreviewSdk.get()).load(meta.getImageurl()).into(imageView);
         }
 
         if(meta.getTitle().isEmpty() || meta.getTitle().equals("")) {

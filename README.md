@@ -21,7 +21,7 @@ The simplest way to use SweetAlertDialog is to add the library as aar dependency
     <dependency>
 	    <groupId>com.github.sahilgarg90</groupId>
 	    <artifactId>RichLinkPreview</artifactId>
-	    <version>1.2</version>
+	    <version>1.3</version>
 	</dependency>
     
 **Gradle**
@@ -38,9 +38,14 @@ Add it in your root build.gradle at the end of repositories
 Add the dependency in your project level build.gradle
 
     dependencies {
-        implementation 'com.github.sahilgarg90:RichLinkPreview:1.2'
+        implementation 'com.github.sahilgarg90:RichLinkPreview:1.3'
         implementation 'org.jsoup:jsoup:1.12.1'
     }
+
+Initialize the SDK in Application class's onCreate() method
+
+    RickLinkPreviewSdk.init(getApplicationContext());
+
 
 #### To implement existing layout using XML
 
